@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-/* Menu Button */
+/* Menu Button (☰) */
 #alertButton {
     background: transparent;
     border: none;
@@ -23,7 +23,7 @@
     height: 40px;
 }
 
-/* Logo Styling */
+/* LOGO: Perfect Centering */
 .logo {
     display: flex;
     justify-content: center;
@@ -49,11 +49,8 @@
     position: relative;
     justify-self: end;
 }
-#mobi_cart-wrapper .cdz-dropdown a {
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
-}
+
+/* Cart Badge Fix */
 #mobi_cart-wrapper .counter.qty {
     position: absolute;
     top: -5px;
@@ -67,7 +64,7 @@
     line-height: 1;
 }
 
-/* Responsive Design */
+/* Responsive Fixes */
 @media screen and (max-width: 768px) {
     #header-top {
         grid-template-columns: 40px 1fr 40px 40px; /* Smaller columns for mobile */
@@ -78,6 +75,7 @@
     }
 }
 
+/* Desktop Adjustments */
 @media screen and (min-width: 769px) {
     #header-bottom {
         display: block; /* Show desktop header */
