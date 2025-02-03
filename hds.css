@@ -1,6 +1,7 @@
 /* Mobile Header Container */
 #header-top {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto; /* Four columns: Menu, Logo, Search, Cart */
     justify-content: space-between;
     align-items: center;
     padding: 10px;
@@ -12,6 +13,7 @@
 
 /* Menu Icon (Hamburger) */
 #alertButton {
+    grid-column: 1; /* Place in the first column */
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -19,14 +21,15 @@
     padding: 0;
     margin: 0;
     color: #000;
+    justify-self: start; /* Align to the left */
 }
 
 /* Logo */
 .logo {
-    flex: 1;
+    grid-column: 2; /* Place in the second column */
     text-align: center;
+    justify-self: center; /* Center the logo */
 }
-
 .logo img {
     max-height: 40px;
     width: auto;
@@ -34,34 +37,33 @@
 
 /* Search and Cart Icons */
 #header-middle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: contents; /* Allow children to participate in the grid */
 }
 
 /* Search Icon */
 .header-search .search-toggle {
+    grid-column: 3; /* Place in the third column */
     font-size: 20px;
     color: #000;
     cursor: pointer;
     text-decoration: none;
+    justify-self: end; /* Align to the right */
 }
 
 /* Cart Icon */
 #mobi_cart-wrapper {
+    grid-column: 4; /* Place in the fourth column */
     position: relative;
+    justify-self: end; /* Align to the far right */
 }
-
 #mobi_cart-wrapper .cdz-dropdown a {
     font-size: 20px;
     color: #000;
     text-decoration: none;
 }
-
 #mobi_cart-wrapper .cart-subtotal {
     display: none; /* Hide the cart subtotal on mobile */
 }
-
 #mobi_cart-wrapper .counter.qty {
     position: absolute;
     top: -10px;
@@ -90,7 +92,6 @@
     #header-top {
         display: none; /* Hide mobile header on desktop */
     }
-
     #header-bottom {
         display: block; /* Show desktop header */
     }
