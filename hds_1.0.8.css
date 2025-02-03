@@ -1,8 +1,8 @@
 /* Header Container */
 #header-top {
-    display: flex; /* Use flexbox instead of grid for better alignment */
+    display: flex; /* Flexbox for perfect alignment */
     align-items: center; /* Center everything vertically */
-    justify-content: space-between; /* Distribute items evenly */
+    justify-content: space-between; /* Space out items properly */
     padding: 10px 15px;
     background-color: #4D5BB8; /* Adjust color if needed */
     width: 100%;
@@ -24,16 +24,17 @@
     height: 40px;
 }
 
-/* LOGO: Centered */
+/* LOGO: Fully Centered */
 .logo {
+    flex-grow: 1; /* Allow the logo to take up available space */
     display: flex;
-    flex: 1; /* Allows logo to grow and stay centered */
-    justify-content: center;
+    justify-content: center; /* Force center alignment */
     align-items: center;
 }
 .logo img {
     max-height: 35px;
     width: auto;
+    display: block; /* Prevent unwanted extra spacing */
 }
 
 /* Search & Cart Icons */
@@ -75,7 +76,7 @@
 /* Responsive Fixes */
 @media screen and (max-width: 768px) {
     #header-top {
-        height: 50px; /* Slightly smaller for mobile */
+        height: 50px; /* Smaller header for mobile */
         padding: 8px;
     }
     .logo img {
