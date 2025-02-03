@@ -1,11 +1,12 @@
 /* Header Container */
 #header-top {
-    display: grid;
-    grid-template-columns: 50px 1fr 50px 50px; /* Balanced columns */
-    align-items: center;
+    display: flex; /* Use flexbox instead of grid for better alignment */
+    align-items: center; /* Center everything vertically */
+    justify-content: space-between; /* Distribute items evenly */
     padding: 10px 15px;
     background-color: #4D5BB8; /* Adjust color if needed */
     width: 100%;
+    height: 60px; /* Ensure consistent height */
     box-sizing: border-box;
 }
 
@@ -23,16 +24,23 @@
     height: 40px;
 }
 
-/* LOGO: Perfect Centering */
+/* LOGO: Centered */
 .logo {
     display: flex;
+    flex: 1; /* Allows logo to grow and stay centered */
     justify-content: center;
     align-items: center;
-    width: 100%; /* Ensure it fills the available space */
 }
 .logo img {
     max-height: 35px;
     width: auto;
+}
+
+/* Search & Cart Icons */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Add space between search & cart */
 }
 
 /* Search Icon */
@@ -41,13 +49,13 @@
     color: white;
     cursor: pointer;
     text-decoration: none;
-    justify-self: end;
 }
 
 /* Cart Icon */
 #mobi_cart-wrapper {
     position: relative;
-    justify-self: end;
+    display: flex;
+    align-items: center;
 }
 
 /* Cart Badge Fix */
@@ -67,20 +75,10 @@
 /* Responsive Fixes */
 @media screen and (max-width: 768px) {
     #header-top {
-        grid-template-columns: 40px 1fr 40px 40px; /* Smaller columns for mobile */
+        height: 50px; /* Slightly smaller for mobile */
         padding: 8px;
     }
     .logo img {
         max-height: 30px;
-    }
-}
-
-/* Desktop Adjustments */
-@media screen and (min-width: 769px) {
-    #header-bottom {
-        display: block; /* Show desktop header */
-    }
-    #header-top {
-        display: none; /* Hide mobile header */
     }
 }
