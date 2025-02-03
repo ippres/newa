@@ -1,0 +1,97 @@
+/* Mobile Header Container */
+#header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Menu Icon (Hamburger) */
+#alertButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    color: #000;
+}
+
+/* Logo */
+.logo {
+    flex: 1;
+    text-align: center;
+}
+
+.logo img {
+    max-height: 40px;
+    width: auto;
+}
+
+/* Search and Cart Icons */
+#header-middle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Search Icon */
+.header-search .search-toggle {
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Cart Icon */
+#mobi_cart-wrapper {
+    position: relative;
+}
+
+#mobi_cart-wrapper .cdz-dropdown a {
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+#mobi_cart-wrapper .cart-subtotal {
+    display: none; /* Hide the cart subtotal on mobile */
+}
+
+#mobi_cart-wrapper .counter.qty {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+/* Hide Advanced Search and Other Unnecessary Elements on Mobile */
+.header-search .nested,
+.header-search .advanced-label,
+.header-search .search-autocomplete {
+    display: none;
+}
+
+/* Ensure the header-bottom is hidden on mobile */
+#header-bottom {
+    display: none;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    #header-top {
+        display: none; /* Hide mobile header on desktop */
+    }
+
+    #header-bottom {
+        display: block; /* Show desktop header */
+    }
+}
