@@ -1,3 +1,8 @@
+/* Hide the "Toggle Nav" span */
+.action.nav-toggle {
+    display: none; /* Completely hide the "Toggle Nav" element */
+}
+
 /* Mobile Header Container */
 #header-top {
     display: grid;
@@ -11,16 +16,16 @@
     box-sizing: border-box;
 }
 
-/* Menu Icon (Hamburger) */
+/* Menu Button (Restyled for Mobile) */
 #alertButton {
     grid-column: 1; /* Place in the first column */
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 24px; /* Larger size for better visibility */
     padding: 0;
     margin: 0;
-    color: #000;
+    color: #000; /* Black color for contrast */
     justify-self: start; /* Align to the left */
 }
 
@@ -33,11 +38,6 @@
 .logo img {
     max-height: 40px;
     width: auto;
-}
-
-/* Search and Cart Icons */
-#header-middle {
-    display: contents; /* Allow children to participate in the grid */
 }
 
 /* Search Icon */
