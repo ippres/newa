@@ -1,0 +1,90 @@
+/* Hide the "Toggle Nav" span */
+.action.nav-toggle {
+    display: none;
+}
+
+/* Mobile Header Container */
+#header-top {
+    display: grid;
+    grid-template-columns: 50px 1fr 40px 40px; /* Better proportions */
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #4D5BB8; /* Adjust color if needed */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Menu Button (Mobile) */
+#alertButton {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    justify-self: start;
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    justify-self: center;
+}
+.logo img {
+    max-height: 35px;
+    width: auto;
+}
+
+/* Search Icon */
+.header-search .search-toggle {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    justify-self: end;
+    padding: 5px;
+}
+
+/* Cart Icon */
+#mobi_cart-wrapper {
+    position: relative;
+    justify-self: end;
+}
+#mobi_cart-wrapper .cdz-dropdown a {
+    font-size: 20px;
+    color: white;
+}
+#mobi_cart-wrapper .counter.qty {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Hide Advanced Search and Other Elements */
+.header-search .nested,
+.header-search .advanced-label,
+.header-search .search-autocomplete {
+    display: none;
+}
+
+/* Hide desktop header on mobile */
+@media (max-width: 768px) {
+    #header-bottom {
+        display: none;
+    }
+}
+
+/* Desktop adjustments */
+@media (min-width: 768px) {
+    #header-top {
+        display: none;
+    }
+    #header-bottom {
+        display: block;
+    }
+}
