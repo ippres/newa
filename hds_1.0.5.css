@@ -1,12 +1,7 @@
-/* Hide the "Toggle Nav" span */
-.action.nav-toggle {
-    display: none;
-}
-
-/* Mobile Header Container */
+/* Header Container */
 #header-top {
     display: grid;
-    grid-template-columns: 50px 1fr 50px 50px; /* Equal spacing */
+    grid-template-columns: 50px 1fr 50px 50px; /* Balanced columns */
     align-items: center;
     padding: 10px 15px;
     background-color: #4D5BB8; /* Adjust color if needed */
@@ -14,24 +9,29 @@
     box-sizing: border-box;
 }
 
-/* Menu Button (Mobile) */
+/* Menu Button */
 #alertButton {
     background: transparent;
     border: none;
     font-size: 24px;
     color: white;
     cursor: pointer;
-    justify-self: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
-/* Logo */
+/* Logo Styling */
 .logo {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%; /* Ensure it fills the available space */
 }
 .logo img {
-    max-height: 35px; /* Adjusted size */
+    max-height: 35px;
     width: auto;
 }
 
@@ -41,7 +41,7 @@
     color: white;
     cursor: pointer;
     text-decoration: none;
-    justify-self: center;
+    justify-self: end;
 }
 
 /* Cart Icon */
@@ -67,26 +67,22 @@
     line-height: 1;
 }
 
-/* Hide Advanced Search and Other Elements */
-.header-search .nested,
-.header-search .advanced-label,
-.header-search .search-autocomplete {
-    display: none;
-}
-
-/* Hide desktop header on mobile */
-@media (max-width: 768px) {
-    #header-bottom {
-        display: none;
-    }
-}
-
-/* Desktop adjustments */
-@media (min-width: 768px) {
+/* Responsive Design */
+@media screen and (max-width: 768px) {
     #header-top {
-        display: none;
+        grid-template-columns: 40px 1fr 40px 40px; /* Smaller columns for mobile */
+        padding: 8px;
     }
+    .logo img {
+        max-height: 30px;
+    }
+}
+
+@media screen and (min-width: 769px) {
     #header-bottom {
-        display: block;
+        display: block; /* Show desktop header */
+    }
+    #header-top {
+        display: none; /* Hide mobile header */
     }
 }
