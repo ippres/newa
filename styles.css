@@ -1,8 +1,8 @@
 #layered-filter-block {
-  color: #000000;
+  color: #000;
 }
 
-#layered-filter-block * {
-  color: #000000 !important;
+/* Apply black color to everything except inside the rating filter block */
+#layered-filter-block :not(.filter-options-item.rating):not(.filter-options-item.rating *) {
+  color: #000 !important;
 }
-
