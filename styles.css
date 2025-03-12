@@ -1,1 +1,8 @@
+#layered-filter-block {
+  color: #000000;
+}
+
+#layered-filter-block * {
+  color: #000000 !important;
+}
 
