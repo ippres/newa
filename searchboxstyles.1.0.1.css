@@ -1,0 +1,13 @@
+/* Scope all price styling to the searchsuite-autocomplete container */
+#searchsuite-autocomplete .normal-price .price,
+#searchsuite-autocomplete .price-box:not(:has(.special-price)) .price-wrapper .price {
+    color: blue !important;
+}
+
+#searchsuite-autocomplete .special-price .price-wrapper .price {
+    color: green !important;
+}
+
+#searchsuite-autocomplete .old-price .price-wrapper .price {
+    color: orange !important;
+}
