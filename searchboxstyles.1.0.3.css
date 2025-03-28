@@ -5,9 +5,9 @@
 }
 
 #searchsuite-autocomplete .special-price .price-wrapper .price {
-    color: green !important;
+    color: #16C516 !important;
 }
 
 #searchsuite-autocomplete .old-price .price-wrapper .price {
-    color: orange !important;
+    color: #FF6C00 !important;
 }
