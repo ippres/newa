@@ -1,3 +1,6 @@
+// menuGenerator.js
+
+// Configuration: define your categories here
 const categories = [
   {
     id: "bio",
@@ -22,7 +25,7 @@ const categories = [
       { name: "Hair Care", link: "/bio/capillaire.html", image: "magefan_blog/imgs/capillaire-1.png" }
     ],
     banners: [
-      "banner_D1.jpg"
+      "magefan_blog/banners/banner_D1.jpg"
     ]
   },
   {
@@ -33,7 +36,7 @@ const categories = [
       { name: "Body Wash", link: "/body-wash", image: "bio.jpg" },
       { name: "Moisturizer", link: "/moisturizer", image: "bio.jpg" }
     ],
-    banners: ["banner_D1.jpg"]
+    banners: ["magefan_blog/banners/banner_D1.jpg"]
   },
   // add more items here...
 ];
@@ -49,8 +52,8 @@ document.addEventListener("DOMContentLoaded", function() {
     li.className = "sidebar-item";
     li.dataset.category = cat.id;
     li.innerHTML = `
-      <a class="category-link" href="#${cat.id}">
-        <img class="category-icon" src="{{media url='${cat.icon}'}}" alt="${cat.name}"> ${cat.name}
+      <a class=\"category-link\" href=\"#${cat.id}\">
+        <img class=\"category-icon\" src=\"{{media url=\"${cat.icon}\"}}\" alt=\"${cat.name}\"> ${cat.name}
       </a>`;
     sidebarList.appendChild(li);
 
@@ -63,10 +66,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const grid = document.createElement("div");
     grid.className = "subcategory-grid";
     grid.innerHTML = cat.subcategories.map(sub => `
-      <div class="subcategory-item">
-        <a href="${sub.link}">
-          <img src="{{media url='${sub.image}'}}" alt="${sub.name}">
-          <p>${sub.name}</p>
+      <div class=\"subcategory-item\">
+        <a href=\"${sub.link}\"\>
+          <img src=\"{{media url=\"${sub.image}\"}}\" alt=\"${sub.name}\">\n          <p>${sub.name}</p>
         </a>
       </div>
     `).join("");
@@ -75,9 +77,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const bannerWrap = document.createElement("div");
     bannerWrap.className = "banners";
     bannerWrap.innerHTML = cat.banners.map(src => `
-      <a href="/${cat.id}-banner">
-        <img src="{{media url='${src}'}}" alt="${cat.name} Banner">
-      </a>
+      <a href=\"/${cat.id}-banner\"\>
+        <img src=\"{{media url=\"${src}\"}}\" alt=\"${cat.name} Banner\">\n      </a>
     `).join("");
 
     section.appendChild(grid);
