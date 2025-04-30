@@ -1,5 +1,3 @@
-.footer-content-top,
-.footer-content-top h4,
-.footer-content-top p {
-  color: black !important;
+.footer-content-top * {
+  color: #000 !important;
 }
