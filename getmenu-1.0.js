@@ -1,4 +1,3 @@
-
 function slugify(str) {
   return str.normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebarList.appendChild(li);
       });
 
-      // Populate main content
+      // Populate content sections
       categories.forEach(cat => {
         const section = document.createElement("div");
         section.id = cat.slug;
@@ -68,11 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
         content.appendChild(section);
       });
 
-      // Activate first section
+      // Activate first
       const first = content.querySelector(".category-content");
       if (first) first.classList.add("active");
 
-      // Handle switching
+      // ✅ Add event listener **after** items exist
       sidebarList.addEventListener("click", e => {
         const item = e.target.closest(".sidebar-item");
         if (!item) return;
