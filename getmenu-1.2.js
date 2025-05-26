@@ -32,14 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         li.className = "sidebar-item";
         li.setAttribute("data-category", cat.slug);
         li.innerHTML = `
-          <a class="category-link" href="#${cat.slug}">
+          <a class="category-link" href="${cat.slug}.html">
             <img class="category-icon" src="${cat.image}" alt="${cat.name}">
             ${cat.name}
           </a>`;
         sidebarList.appendChild(li);
       });
 
-      // Populate content sections
+      // Populate content
       categories.forEach(cat => {
         const section = document.createElement("div");
         section.id = cat.slug;
@@ -71,12 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const first = content.querySelector(".category-content");
       if (first) first.classList.add("active");
 
-      // ✅ Add event listener **after** items exist
-      sidebarList.addEventListener("click", e => {
+      // ✅ Switch on hover
+      sidebarList.addEventListener("mouseover", e => {
         const item = e.target.closest(".sidebar-item");
         if (!item) return;
 
-        e.preventDefault();
         const category = item.getAttribute("data-category");
 
         document.querySelectorAll(".category-content").forEach(sec =>
