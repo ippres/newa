@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarList = document.querySelector(".sidebar-list");
   const content = document.querySelector("main.content");
 
-  fetch('https://test.dibitel.com/rest/V1/category-thumbnails')
+  fetch('https://dev.dibitel.com/rest/V1/category-thumbnails')
     .then(res => res.json())
     .then(data => {
       const root = data.find(c => c.id === "2");
