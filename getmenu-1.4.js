@@ -1,11 +1,3 @@
-function slugify(str) {
-  return str.normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9\-]/g, "");
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   const sidebarList = document.querySelector(".sidebar-list");
   const content = document.querySelector("main.content");
@@ -16,23 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const root = data.find(c => c.id === "2");
       if (!root) return;
 
-      const categories = root.children.map(cat => {
-        const slug = slugify(cat.name);
-        return {
-          slug,
-          name: cat.name,
-          image: cat.thumbnail || '',
-          children: Array.isArray(cat.children) ? cat.children : []
-        };
-      });
+      const categories = root.children.map(cat => ({
+        id: cat.id,
+        name: cat.name,
+        image: cat.thumbnail || '',
+        url: cat.url,
+        children: Array.isArray(cat.children) ? cat.children : []
+      }));
 
       // Populate sidebar
       categories.forEach(cat => {
         const li = document.createElement("li");
         li.className = "sidebar-item";
-        li.setAttribute("data-category", cat.slug);
+        li.setAttribute("data-category", `cat-${cat.id}`);
         li.innerHTML = `
-          <a class="category-link" href="${cat.slug}.html">
+          <a class="category-link" href="${cat.url}">
             <img class="category-icon" src="${cat.image}" alt="${cat.name}">
             ${cat.name}
           </a>`;
@@ -42,22 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
       // Populate content
       categories.forEach(cat => {
         const section = document.createElement("div");
-        section.id = cat.slug;
+        section.id = `cat-${cat.id}`;
         section.className = "category-content";
 
         const grid = document.createElement("div");
         grid.className = "subcategory-grid";
 
         cat.children.forEach(sub => {
-          const subSlug = slugify(sub.name);
-          const href = `/${cat.slug}/${subSlug}.html`;
-          const thumb = sub.thumbnail || '';
-
           const item = document.createElement("div");
           item.className = "subcategory-item";
           item.innerHTML = `
-            <a href="${href}">
-              <img src="${thumb}" alt="${sub.name}">
+            <a href="${sub.url}">
+              <img src="${sub.thumbnail || ''}" alt="${sub.name}">
               <p>${sub.name}</p>
             </a>`;
           grid.appendChild(item);
@@ -76,13 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const item = e.target.closest(".sidebar-item");
         if (!item) return;
 
-        const category = item.getAttribute("data-category");
+        const categoryId = item.getAttribute("data-category");
 
         document.querySelectorAll(".category-content").forEach(sec =>
           sec.classList.remove("active")
         );
 
-        const activeSection = document.getElementById(category);
+        const activeSection = document.getElementById(categoryId);
         if (activeSection) activeSection.classList.add("active");
       });
     });
